@@ -26,6 +26,8 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  int counter = 0;
+
   var correct = Icon(
     Icons.check,
     color: Colors.green,
@@ -36,6 +38,12 @@ class _QuizPageState extends State<QuizPage> {
   );
 
   List<Icon> scoreKeeper = [];
+  List<String> questions = [
+    'You can lead a cow down stairs but not up stairs.',
+    'Approximately one quarter of human bones are in the feet.',
+    'A slug\'s blood is green.'
+  ];
+  List<bool> answers = [false, true, true];
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +57,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                'This is where the question text will go.',
+                questions[counter],
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -76,7 +84,15 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 //The user picked true.
                 setState(() {
-                  scoreKeeper.add(correct);
+                  bool check = answers[counter];
+                  if (check == true) {
+                    scoreKeeper.add(correct);
+                  } else {
+                    scoreKeeper.add(wrong);
+                  }
+                  if (counter + 1 != questions.length) {
+                    counter++;
+                  }
                 });
               },
             ),
@@ -98,6 +114,17 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 //The user picked false.
+                setState(() {
+                  bool check = answers[counter];
+                  if (check == false) {
+                    scoreKeeper.add(correct);
+                  } else {
+                    scoreKeeper.add(wrong);
+                  }
+                  if (counter + 1 != questions.length) {
+                    counter++;
+                  }
+                });
               },
             ),
           ),
