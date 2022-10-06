@@ -2,9 +2,10 @@
 
 A simple quiz app
 
+![App Icon](https://github.com/Ubaidullah13/Quizzler/blob/master/images/quizzler%20icon.png)
+
 ![App ScreenShot](https://github.com/Ubaidullah13/Quizzler/blob/master/images/Quizzler.jpeg)
 
-![App Icon](https://github.com/Ubaidullah13/Quizzler/blob/master/images/quizzler%20icon.png)
 
 ## Getting Started
 
